@@ -1,0 +1,8 @@
+:root {
+  --ring: 0 0% 0%;
+}
+* { box-sizing: border-box; }
+img { display: block; }
+#mobileMenu.show { display: block; }
+#cartDrawer.show { transform: translateX(0); }
+#cartOverlay.show { display: block; }

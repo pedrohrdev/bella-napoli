@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pizzaria Bella Napoli</title>
+  <meta name="description" content="Pizzaria Bella Napoli — pizzas artesanais assadas no forno a lenha em Maringá-PR." />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] } } } }
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body class="bg-neutral-50 text-neutral-900 font-sans">
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/index.html" class="flex items-center gap-3">
+        <img src="/assets/img/logo.svg" alt="Bella Napoli" class="w-9 h-9" />
+        <span class="text-xl font-extrabold tracking-tight">Bella Napoli</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="/index.html" class="hover:text-red-600 transition">Home</a>
+        <a href="/menu.html" class="hover:text-red-600 transition">Cardápio</a>
+        <a href="/contato.html" class="hover:text-red-600 transition">Contato</a>
+        <a href="https://wa.me/5544991262009?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20%F0%9F%8D%95" class="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 transition shadow">
+          <span>PedIr no WhatsApp</span>
+        </a>
+      </nav>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-300">
+        <span class="sr-only">Abrir menu</span>
+        ☰
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-neutral-200 bg-white">
+      <div class="px-4 py-3 flex flex-col gap-3 text-sm">
+        <a href="/index.html" class="hover:text-red-600">Home</a>
+        <a href="/menu.html" class="hover:text-red-600">Cardápio</a>
+        <a href="/contato.html" class="hover:text-red-600">Contato</a>
+        <a href="https://wa.me/5544991262009?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20%F0%9F%8D%95" class="inline-flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 transition shadow">Pedir no WhatsApp</a>
+      </div>
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto px-4 py-14">
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-extrabold">Cardápio</h1>
+        <p class="text-neutral-600 mt-2">Escolha sua favorita e peça pelo WhatsApp.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#" id="openCart" class="relative inline-flex items-center gap-2 border border-neutral-300 px-4 py-2 rounded-xl hover:bg-neutral-100 transition">
+          Carrinho
+          <span id="cartCount" class="ml-1 inline-flex items-center justify-center w-6 h-6 text-xs rounded-full bg-red-600 text-white">0</span>
+        </a>
+        <a href="#" id="checkout" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">Finalizar no WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      
+    <div id="pepperoni" class="rounded-2xl overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition flex flex-col">
+      <img src="assets/img/pizzas/images.webp" alt="Pepperoni" class="w-full h-48 object-cover">
+      <div class="p-4 flex-1 flex flex-col">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="font-semibold text-lg">Pepperoni</h3>
+          <span class="font-bold text-red-600">R$ 49,90</span>
+        </div>
+        <p class="text-sm text-neutral-600 mt-1 flex-1">mussarela, pepperoni e orégano</p>
+        <div class="mt-4 flex gap-2">
+          <button class="zap-item inline-flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 transition shadow"
+                  data-item="Pepperoni" data-price="49,90">
+            Pedir no WhatsApp
+          </button>
+          <button class="add-cart inline-flex items-center justify-center gap-2 border border-neutral-300 px-4 py-2 rounded-xl hover:bg-neutral-100 transition"
+                  data-item="Pepperoni" data-price="49,90">
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="margherita" class="rounded-2xl overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition flex flex-col">
+      <img src="assets/img/pizzas/pizza-margherita-receita.webp" alt="Margherita" class="w-full h-48 object-cover">
+      <div class="p-4 flex-1 flex flex-col">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="font-semibold text-lg">Margherita</h3>
+          <span class="font-bold text-red-600">R$ 45,90</span>
+        </div>
+        <p class="text-sm text-neutral-600 mt-1 flex-1">molho de tomate, mussarela, manjericão</p>
+        <div class="mt-4 flex gap-2">
+          <button class="zap-item inline-flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 transition shadow"
+                  data-item="Margherita" data-price="45,90">
+            Pedir no WhatsApp
+          </button>
+          <button class="add-cart inline-flex items-center justify-center gap-2 border border-neutral-300 px-4 py-2 rounded-xl hover:bg-neutral-100 transition"
+                  data-item="Margherita" data-price="45,90">
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="quattro" class="rounded-2xl overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition flex flex-col">
+      <img src="assets/img/pizzas/pizza-de-4-queijos.avif"" alt="Quatro Queijos" class="w-full h-48 object-cover">
+      <div class="p-4 flex-1 flex flex-col">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="font-semibold text-lg">Quatro Queijos</h3>
+          <span class="font-bold text-red-600">R$ 56,90</span>
+        </div>
+        <p class="text-sm text-neutral-600 mt-1 flex-1">mussarela, gorgonzola, parmesão, provolone</p>
+        <div class="mt-4 flex gap-2">
+          <button class="zap-item inline-flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 transition shadow"
+                  data-item="Quatro Queijos" data-price="56,90">
+            Pedir no WhatsApp
+          </button>
+          <button class="add-cart inline-flex items-center justify-center gap-2 border border-neutral-300 px-4 py-2 rounded-xl hover:bg-neutral-100 transition"
+                  data-item="Quatro Queijos" data-price="56,90">
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="funghi" class="rounded-2xl overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition flex flex-col">
+      <img src="assets/img/pizzas/DDFH6ESZBRAKTAVTWUS4Q6ENQY.avif" alt="Funghi" class="w-full h-48 object-cover">
+      <div class="p-4 flex-1 flex flex-col">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="font-semibold text-lg">Funghi</h3>
+          <span class="font-bold text-red-600">R$ 54,90</span>
+        </div>
+        <p class="text-sm text-neutral-600 mt-1 flex-1">cogumelos salteados, mussarela, alho</p>
+        <div class="mt-4 flex gap-2">
+          <button class="zap-item inline-flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 transition shadow"
+                  data-item="Funghi" data-price="54,90">
+            Pedir no WhatsApp
+          </button>
+          <button class="add-cart inline-flex items-center justify-center gap-2 border border-neutral-300 px-4 py-2 rounded-xl hover:bg-neutral-100 transition"
+                  data-item="Funghi" data-price="54,90">
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="hawaiian" class="rounded-2xl overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition flex flex-col">
+      <img src="assets/img/pizzas/6027.jpg.webp" alt="Havaiana" class="w-full h-48 object-cover">
+      <div class="p-4 flex-1 flex flex-col">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="font-semibold text-lg">Havaiana</h3>
+          <span class="font-bold text-red-600">R$ 52,90</span>
+        </div>
+        <p class="text-sm text-neutral-600 mt-1 flex-1">mussarela, presunto, abacaxi</p>
+        <div class="mt-4 flex gap-2">
+          <button class="zap-item inline-flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 transition shadow"
+                  data-item="Havaiana" data-price="52,90">
+            Pedir no WhatsApp
+          </button>
+          <button class="add-cart inline-flex items-center justify-center gap-2 border border-neutral-300 px-4 py-2 rounded-xl hover:bg-neutral-100 transition"
+                  data-item="Havaiana" data-price="52,90">
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="salami" class="rounded-2xl overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition flex flex-col">
+      <img src="assets/img/pizzas/salame_italiano.png" alt="Salame" class="w-full h-48 object-cover">
+      <div class="p-4 flex-1 flex flex-col">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="font-semibold text-lg">Salame</h3>
+          <span class="font-bold text-red-600">R$ 53,90</span>
+        </div>
+        <p class="text-sm text-neutral-600 mt-1 flex-1">mussarela, salame italiano, azeitonas</p>
+        <div class="mt-4 flex gap-2">
+          <button class="zap-item inline-flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 transition shadow"
+                  data-item="Salame" data-price="53,90">
+            Pedir no WhatsApp
+          </button>
+          <button class="add-cart inline-flex items-center justify-center gap-2 border border-neutral-300 px-4 py-2 rounded-xl hover:bg-neutral-100 transition"
+                  data-item="Salame" data-price="53,90">
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="veggie" class="rounded-2xl overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition flex flex-col">
+      <img src="assets/img/pizzas/pizza-vegetariana.webp" alt="Vegetariana" class="w-full h-48 object-cover">
+      <div class="p-4 flex-1 flex flex-col">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="font-semibold text-lg">Vegetariana</h3>
+          <span class="font-bold text-red-600">R$ 51,90</span>
+        </div>
+        <p class="text-sm text-neutral-600 mt-1 flex-1">mix de legumes, mussarela, ervas</p>
+        <div class="mt-4 flex gap-2">
+          <button class="zap-item inline-flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 transition shadow"
+                  data-item="Vegetariana" data-price="51,90">
+            Pedir no WhatsApp
+          </button>
+          <button class="add-cart inline-flex items-center justify-center gap-2 border border-neutral-300 px-4 py-2 rounded-xl hover:bg-neutral-100 transition"
+                  data-item="Vegetariana" data-price="51,90">
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="napoletana" class="rounded-2xl overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition flex flex-col">
+      <img src="assets/img/pizzas/Eq_it-na_pizza-margherita_sep2005_sml.jpg" alt="Napoletana" class="w-full h-48 object-cover">
+      <div class="p-4 flex-1 flex flex-col">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="font-semibold text-lg">Napoletana</h3>
+          <span class="font-bold text-red-600">R$ 57,90</span>
+        </div>
+        <p class="text-sm text-neutral-600 mt-1 flex-1">anchovas, alcaparras, azeitonas, tomate</p>
+        <div class="mt-4 flex gap-2">
+          <button class="zap-item inline-flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 transition shadow"
+                  data-item="Napoletana" data-price="57,90">
+            Pedir no WhatsApp
+          </button>
+          <button class="add-cart inline-flex items-center justify-center gap-2 border border-neutral-300 px-4 py-2 rounded-xl hover:bg-neutral-100 transition"
+                  data-item="Napoletana" data-price="57,90">
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+
+    <!-- Drawer Carrinho -->
+    <div id="cartDrawer" class="fixed top-0 right-0 w-full sm:w-[420px] h-full bg-white shadow-2xl border-l border-neutral-200 translate-x-full transition-transform z-50">
+      <div class="p-4 border-b border-neutral-200 flex items-center justify-between">
+        <h3 class="font-bold text-lg">Seu carrinho</h3>
+        <button id="closeCart" class="text-2xl leading-none">×</button>
+      </div>
+      <div id="cartItems" class="p-4 space-y-3 overflow-y-auto h-[calc(100%-160px)]"></div>
+      <div class="p-4 border-t border-neutral-200">
+        <div class="flex items-center justify-between font-semibold">
+          <span>Total</span>
+          <span id="cartTotal">R$ 0,00</span>
+        </div>
+        <a href="#" id="checkoutDrawer" class="mt-3 block text-center bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">Finalizar no WhatsApp</a>
+      </div>
+    </div>
+    <div id="cartOverlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
+  </main>
+  <footer class="mt-24 border-t border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <img src="/assets/img/logo.svg" class="w-8 h-8" alt="Logo" />
+          <span class="font-bold text-lg">Bella Napoli</span>
+        </div>
+        <p class="text-sm text-neutral-600">Pizzas artesanais assadas no forno a lenha. Ingredientes frescos e massa de longa fermentação.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a class="hover:text-red-600" href="/index.html">Home</a></li>
+          <li><a class="hover:text-red-600" href="/menu.html">Cardápio</a></li>
+          <li><a class="hover:text-red-600" href="/contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Horários</h4>
+        <p class="text-sm text-neutral-600">Seg–Qui: 18h–23h<br>Sex–Dom: 18h–00h</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Fale com a gente</h4>
+        <a href="#" id="footerZap" class="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition shadow">WhatsApp</a>
+      </div>
+    </div>
+    <div class="text-center text-xs text-neutral-500 py-6">© 2025 Bella Napoli. Todos os direitos reservados.</div>
+  </footer>
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>
